@@ -1,0 +1,33 @@
+<html>
+<head>
+<meta charset="utf-8">
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="selection_groupe.js"></script>
+<script type="text/javascript" src="occurences.js"></script>
+ <script type="text/javascript">         
+
+            $(function()
+            {
+				
+                $('#gm').container({"groups" : 6,"callback" : function(data){
+                	alert('bourdil ' + JSON.stringify(data));
+	                }});
+               $('#gm2').container({"groups": 2});
+               $('#myoc').occurences();
+               
+
+            });
+
+        </script>
+</head>
+
+
+ <body>
+
+ <div id="gm"></div>      
+ <div id="gm2"></div>      
+ <div id="myoc"></div>      
+ </body>
+
+
+</html>

@@ -1,2 +1,3 @@
 # meteo
-weather station assisted by nodeJS and Arduino
+
+a [Sails](http://sailsjs.org) application

@@ -1,0 +1,199 @@
+[2016-09-29 07:52:59.784] [ERROR] console - log4js.fileAppender - Writing to file /var/node/meteo/logs/logs/viewer.log, error happened  { [Error: ENOENT, open '/var/node/meteo/logs/logs/viewer.log']
+  errno: -2,
+  code: 'ENOENT',
+  path: '/var/node/meteo/logs/logs/viewer.log' }
+Error: ENOENT, open '/var/node/meteo/logs/logs/viewer.log'
+    at Error (native)
+[2016-09-29 07:53:02.457] [INFO] console - -----------------------------------------------------------------
+[2016-09-29 07:53:02.467] [INFO] console - 
+[2016-09-29 07:53:02.478] [INFO] console -  Excuse my interruption, but it looks like this app
+ does not have a project-wide "migrate" setting configured yet.
+ (perhaps this is the first time you're lifting it with models?)
+ 
+ In short, this setting controls whether/how Sails will attempt to automatically
+ rebuild the tables/collections/sets/etc. in your database schema.
+ You can read more about the "migrate" setting here:
+ http://sailsjs.org/#/documentation/concepts/ORM/model-settings.html?q=migrate
+
+[2016-09-29 07:53:02.482] [INFO] console -  In a production environment (NODE_ENV==="production") Sails always uses
+ migrate:"safe" to protect inadvertent deletion of your data.
+ However during development, you have a few other options for convenience:
+
+ 1. safe  - never auto-migrate my database(s). I will do it myself (by hand) 
+ 2. alter - auto-migrate, but attempt to keep my existing data (experimental)
+ 3. drop  - wipe/drop ALL my data and rebuild models every time I lift Sails
+
+[2016-09-29 07:53:02.487] [INFO] console - What would you like Sails to do?
+[2016-09-29 07:53:02.489] [INFO] console - 
+[2016-09-29 07:53:02.495] [INFO] console - 
+[2016-09-29 07:53:02.498] [INFO] console - 
+[2016-09-29 07:54:14.078] [ERROR] console - log4js.fileAppender - Writing to file /var/node/meteo/logs/logs/viewer.log, error happened  { [Error: ENOENT, open '/var/node/meteo/logs/logs/viewer.log']
+  errno: -2,
+  code: 'ENOENT',
+  path: '/var/node/meteo/logs/logs/viewer.log' }
+Error: ENOENT, open '/var/node/meteo/logs/logs/viewer.log'
+    at Error (native)
+[2016-09-29 07:54:16.277] [INFO] console - -----------------------------------------------------------------
+[2016-09-29 07:54:16.282] [INFO] console - 
+[2016-09-29 07:54:16.294] [INFO] console -  Excuse my interruption, but it looks like this app
+ does not have a project-wide "migrate" setting configured yet.
+ (perhaps this is the first time you're lifting it with models?)
+ 
+ In short, this setting controls whether/how Sails will attempt to automatically
+ rebuild the tables/collections/sets/etc. in your database schema.
+ You can read more about the "migrate" setting here:
+ http://sailsjs.org/#/documentation/concepts/ORM/model-settings.html?q=migrate
+
+[2016-09-29 07:54:16.298] [INFO] console -  In a production environment (NODE_ENV==="production") Sails always uses
+ migrate:"safe" to protect inadvertent deletion of your data.
+ However during development, you have a few other options for convenience:
+
+ 1. safe  - never auto-migrate my database(s). I will do it myself (by hand) 
+ 2. alter - auto-migrate, but attempt to keep my existing data (experimental)
+ 3. drop  - wipe/drop ALL my data and rebuild models every time I lift Sails
+
+[2016-09-29 07:54:16.300] [INFO] console - What would you like Sails to do?
+[2016-09-29 07:54:16.302] [INFO] console - 
+[2016-09-29 07:54:16.306] [INFO] console - 
+[2016-09-29 07:54:16.310] [INFO] console - 
+[2016-09-29 07:54:17.843] [INFO] console - 
+[2016-09-29 07:54:17.845] [INFO] console -  Temporarily using `sails.config.models.migrate="safe"...
+[2016-09-29 07:54:17.847] [INFO] console -  (press CTRL+C to cancel-- continuing lift automatically in 0.5 seconds...)
+[2016-09-29 07:54:17.848] [INFO] console - 
+[2016-09-29 07:55:02.512] [DEBUG] tom.txt - [ { temperature: 16,
+    humidity: 10,
+    date_created: '2016-09-29 09:10:20',
+    stamp: 1475140220367,
+    next_save: 1475140520369,
+    date_next_save: '2016-09-29 09:15:20',
+    id: '57ecbe5cefe33d288f07df20' },
+  { temperature: 16,
+    humidity: 10,
+    date_created: '2016-09-29 09:05:10',
+    stamp: 1475139910397,
+    next_save: 1475140210399,
+    date_next_save: '2016-09-29 09:10:10',
+    id: '57ecbd26efe33d288f07df1f' },
+  { temperature: 16,
+    humidity: 10,
+    date_created: '2016-09-29 09:00:00',
+    stamp: 1475139600427,
+    next_save: 1475139900430,
+    date_next_save: '2016-09-29 09:05:00',
+    id: '57ecbbf0efe33d288f07df1e' },
+  { temperature: 16,
+    humidity: 10,
+    date_created: '2016-09-29 08:54:50',
+    stamp: 1475139290457,
+    next_save: 1475139590459,
+    date_next_save: '2016-09-29 08:59:50',
+    id: '57ecbabaefe33d288f07df1d' },
+  { temperature: 16,
+    humidity: 10,
+    date_created: '2016-09-29 08:49:40',
+    stamp: 1475138980488,
+    next_save: 1475139280490,
+    date_next_save: '2016-09-29 08:54:40',
+    id: '57ecb984efe33d288f07df1c' },
+  { temperature: 16,
+    humidity: 10,
+    date_created: '2016-09-29 08:44:30',
+    stamp: 1475138670518,
+    next_save: 1475138970521,
+    date_next_save: '2016-09-29 08:49:30',
+    id: '57ecb84eefe33d288f07df1b' },
+  { temperature: 16,
+    humidity: 10,
+    date_created: '2016-09-29 08:39:20',
+    stamp: 1475138360549,
+    next_save: 1475138660552,
+    date_next_save: '2016-09-29 08:44:20',
+    id: '57ecb718efe33d288f07df1a' },
+  { temperature: 16,
+    humidity: 10,
+    date_created: '2016-09-29 08:34:10',
+    stamp: 1475138050580,
+    next_save: 1475138350582,
+    date_next_save: '2016-09-29 08:39:10',
+    id: '57ecb5e2efe33d288f07df19' },
+  { temperature: 16,
+    humidity: 10,
+    date_created: '2016-09-29 08:29:00',
+    stamp: 1475137740611,
+    next_save: 1475138040613,
+    date_next_save: '2016-09-29 08:34:00',
+    id: '57ecb4acefe33d288f07df18' },
+  { temperature: 16,
+    humidity: 10,
+    date_created: '2016-09-29 08:23:50',
+    stamp: 1475137430641,
+    next_save: 1475137730644,
+    date_next_save: '2016-09-29 08:28:50',
+    id: '57ecb376efe33d288f07df17' },
+  [length]: [33m10[39m ]
+[2016-09-29 07:58:01.073] [ERROR] console - log4js.fileAppender - Writing to file /var/node/meteo/logs/logs/viewer.log, error happened  { [Error: ENOENT, open '/var/node/meteo/logs/logs/viewer.log']
+  errno: -2,
+  code: 'ENOENT',
+  path: '/var/node/meteo/logs/logs/viewer.log' }
+Error: ENOENT, open '/var/node/meteo/logs/logs/viewer.log'
+    at Error (native)
+[2016-09-29 07:58:03.158] [INFO] console - -----------------------------------------------------------------
+[2016-09-29 07:58:03.164] [INFO] console - 
+[2016-09-29 07:58:03.175] [INFO] console -  Excuse my interruption, but it looks like this app
+ does not have a project-wide "migrate" setting configured yet.
+ (perhaps this is the first time you're lifting it with models?)
+ 
+ In short, this setting controls whether/how Sails will attempt to automatically
+ rebuild the tables/collections/sets/etc. in your database schema.
+ You can read more about the "migrate" setting here:
+ http://sailsjs.org/#/documentation/concepts/ORM/model-settings.html?q=migrate
+
+[2016-09-29 07:58:03.179] [INFO] console -  In a production environment (NODE_ENV==="production") Sails always uses
+ migrate:"safe" to protect inadvertent deletion of your data.
+ However during development, you have a few other options for convenience:
+
+ 1. safe  - never auto-migrate my database(s). I will do it myself (by hand) 
+ 2. alter - auto-migrate, but attempt to keep my existing data (experimental)
+ 3. drop  - wipe/drop ALL my data and rebuild models every time I lift Sails
+
+[2016-09-29 07:58:03.181] [INFO] console - What would you like Sails to do?
+[2016-09-29 07:58:03.183] [INFO] console - 
+[2016-09-29 07:58:03.186] [INFO] console - 
+[2016-09-29 07:58:03.189] [INFO] console - 
+[2016-09-29 07:58:04.738] [INFO] console - 
+[2016-09-29 07:58:04.741] [INFO] console -  Temporarily using `sails.config.models.migrate="safe"...
+[2016-09-29 07:58:04.745] [INFO] console -  (press CTRL+C to cancel-- continuing lift automatically in 0.5 seconds...)
+[2016-09-29 07:58:04.747] [INFO] console - 
+[2016-09-29 08:02:10.886] [ERROR] console - log4js.fileAppender - Writing to file /var/node/meteo/logs/logs/viewer.log, error happened  { [Error: ENOENT, open '/var/node/meteo/logs/logs/viewer.log']
+  errno: -2,
+  code: 'ENOENT',
+  path: '/var/node/meteo/logs/logs/viewer.log' }
+Error: ENOENT, open '/var/node/meteo/logs/logs/viewer.log'
+    at Error (native)
+[2016-09-29 08:02:13.224] [INFO] console - -----------------------------------------------------------------
+[2016-09-29 08:02:13.231] [INFO] console - 
+[2016-09-29 08:02:13.244] [INFO] console -  Excuse my interruption, but it looks like this app
+ does not have a project-wide "migrate" setting configured yet.
+ (perhaps this is the first time you're lifting it with models?)
+ 
+ In short, this setting controls whether/how Sails will attempt to automatically
+ rebuild the tables/collections/sets/etc. in your database schema.
+ You can read more about the "migrate" setting here:
+ http://sailsjs.org/#/documentation/concepts/ORM/model-settings.html?q=migrate
+
+[2016-09-29 08:02:13.251] [INFO] console -  In a production environment (NODE_ENV==="production") Sails always uses
+ migrate:"safe" to protect inadvertent deletion of your data.
+ However during development, you have a few other options for convenience:
+
+ 1. safe  - never auto-migrate my database(s). I will do it myself (by hand) 
+ 2. alter - auto-migrate, but attempt to keep my existing data (experimental)
+ 3. drop  - wipe/drop ALL my data and rebuild models every time I lift Sails
+
+[2016-09-29 08:02:13.254] [INFO] console - What would you like Sails to do?
+[2016-09-29 08:02:13.256] [INFO] console - 
+[2016-09-29 08:02:13.261] [INFO] console - 
+[2016-09-29 08:02:13.264] [INFO] console - 
+[2016-09-29 08:02:15.316] [INFO] console - 
+[2016-09-29 08:02:15.320] [INFO] console -  Temporarily using `sails.config.models.migrate="safe"...
+[2016-09-29 08:02:15.323] [INFO] console -  (press CTRL+C to cancel-- continuing lift automatically in 0.5 seconds...)
+[2016-09-29 08:02:15.325] [INFO] console - 
