@@ -64,7 +64,7 @@ float Temperature() {
         */
         ds.reset_search();
         delay(250);
-        return 0;
+        return -666;
       }
       
       /*
@@ -81,7 +81,7 @@ float Temperature() {
       */
       if (OneWire::crc8(addr, 7) != addr[7]) {
           Serial.println("CRC is not valid!");
-          return 0;
+          return -666;
       }
       Serial.println();
      
@@ -104,7 +104,7 @@ float Temperature() {
               break;
             default:
               Serial.println("Device is not a DS18x20 family device.");
-              return 0;
+              return -666;
           } 
       }
       ds.reset();
@@ -199,7 +199,7 @@ void intToBinary(int nb,char* ptTmp, char tmpDestination[12]) {
 
 void loop() {
   temps++;
-  if (temps >= 100) {
+  if (temps >= 38) {
        efficientData = compteur;
        compteur = 0;
        temps = 0; 
@@ -211,34 +211,38 @@ void loop() {
        temps = 0; 
 
   }
-  float chaleur = Temperature();
-  char tmpDestination[12];
-  char* ptTmp1 = tmpDestination;
-  int toTransmit = (chaleur + 1000)*100;
-  intToBinary(chaleur, ptTmp1, tmpDestination);
   
-  int valeurH = analogRead(humidite);
+  float chaleur = Temperature();
+  delay(2000);
+  if(chaleur > -500) {
+    chaleur += 100;
+    
+    char tmpDestination[12];
+    char* ptTmp1 = tmpDestination;
+    int toTransmit = (chaleur + 1000)*100;
+    intToBinary(chaleur, ptTmp1, tmpDestination);
+    
+    mySwitch.send(tmpDestination);
+    
+  }
+  int valeurH = analogRead(humidite) +200;
   char tmpDestination2[12];
   char* ptTmp2 = tmpDestination2;
   intToBinary(valeurH, ptTmp2, tmpDestination2);
   
   char tmpDestination3[12];
   char* ptTmp3 = tmpDestination3;
-  intToBinary(efficientData, ptTmp3, tmpDestination3);
+  if(efficientData < 6) efficientData = 5;
+  intToBinary((efficientData + 1000), ptTmp3, tmpDestination3);
   
 
-  mySwitch.send("1101000001010");//code demon portocol 6666 avant envoi de temperature
-  delay(500);
-  mySwitch.send(tmpDestination);
-  delay(500);
-  mySwitch.send("1010011010");//code demon portocol 666 avant envoi de l'humidité
-  delay(500);
+  delay(2000);
+  
   mySwitch.send(tmpDestination2);
-  delay(500);
-  mySwitch.send("1100001001");//code demon portocol 777 avant envoi de l'humidité
-  delay(500);
+  delay(2000);
+  
   mySwitch.send(tmpDestination3);
-  delay(500);
+  delay(2000);
   
   /* Same switch as above, but using binary code */
   

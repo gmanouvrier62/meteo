@@ -18,6 +18,8 @@ function deamon_meteo(){
   });
   
   this.numbers = 0;
+  this.mongoConnection = "127.0.0.1/test";
+
   this.currentTemperature = null;
   this.currentHumidity = null;
   this.currentStatus = null;
@@ -43,33 +45,25 @@ function deamon_meteo(){
       //console.log("T° = ", self.currentTemperature, "Humidity = ", self.currentHumidity,"Vent = ", self.currentVent, "offset = ", self.offset);
       //console.log("V = ", self.currenture, "Humidity = ", self.currentHumidity, "offset = ", self.offset);
       
-      if (data.code === 666) {
-        self.currentStatus = "H";
-      } else if (data.code === 6666) {
-        self.currentStatus = "T";
-      } else if (data.code === 777) {
-        self.currentStatus = "V";
-      } else {
-          if (self.currentStatus === "H" && data.code !== 777 && data.code !== 666 && data.code !== 6666){
-            self.currentHumidity = data.code;
-            console.log("h set à ", data.code);
-          }
-
-          if (self.currentStatus === "T" && data.code !== 777 && data.code !== 666 && data.code !== 6666){
-            self.currentTemperature = data.code;
-             console.log("t set à ", data.code);
-          }
-          if (self.currentStatus === "V" && data.code !== 777 && data.code !== 666 && data.code !== 6666){
-            self.currentVent = data.code;
-             console.log("v set à ", data.code);
-          }
+      //interprétation
+      if (data.code < 200) {
+        //température -100
+        self.currentTemperature = data.code - 100;
       }
+      if (data.code >= 200 && data.code < 1000) {
+        //humidité -100
+        self.currentHumidity = data.code - 200;
+      }
+      if(data.code > 1000) {
+        //vent
+        self.currentVent = data.code - 1000;
+      }
+      
 
       if (self.currentTemperature !== null && self.currentHumidity !== null && self.currentTemperature !== undefined && self.currentHumidity !== undefined && self.currentVent !== undefined && self.currentVent !== null) {
-        if(self.currentTemperature < 60) {
             if (now_stamp > self.p_stamp) {
               //J'ai les 2 informations, je sauvegarde en base Mongo
-              var db = mongojs("127.0.0.1/test", ['meteo']);
+              var db = mongojs(self.mongoConnection, ['meteo']);
               //console.log("J'ai les  infos temp et humi", self.currentTemperature, self.currentHumidity);
               var objDt=new Date();
               var row = {
@@ -117,9 +111,7 @@ function deamon_meteo(){
                 console.log("Pas de save car date = ", now_format, ", prochaine dt = ", self.p_format);
                 var db = null;
             }
-       } else {
-          self.currentTemperature = null;
-       }
+       
       }
 
       //console.log('Code received: ' + data.code +' pulse length : ' + data.pulseLength);
