@@ -4,8 +4,8 @@ requirejs.config({
     paths: {
       'pnotify': 'pnotify.custom.min',
       'jquery' :    'jquery',
-      'jquery-ui' : 'jquery-ui'
-
+      'jquery-ui' : 'jquery-ui',
+      'socket.io'  : "socket.io", 
       
     },
     // Bootstrap is a "browser globals" script :-(

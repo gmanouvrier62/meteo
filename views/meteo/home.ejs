@@ -1,37 +1,79 @@
 <html>
 <head>
 <link href="/js/dependencies/pnotify.custom.min.css" rel="stylesheet">
-<link href="/js/dependencies/caisse.css" rel="stylesheet">
+<link href="/styles/meteo.css" rel="stylesheet">
 <link href="/js/dependencies/jquery-ui/jquery-ui.css" rel="stylesheet">
 <script type="text/javascript" data-main="/js/dependencies/require.main.js"  src="/js/dependencies/require.js"></script>
-
+<script type="text/javascript" src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
 <script>
  require(['jquery','jquery-ui','pnotify'], function () {
  	//$( "#dialog" ).dialog();
-    
+    $( "#dtDebut" ).datepicker({
+	      defaultDate: "",
+	      changeMonth: true,
+	      changeYear: true,
+	      dateFormat: "yy-mm-dd",
+	      onClose: function( selectedDate ) {
+	        $( "#dtDebut" ).datepicker( "option", "maxDate", selectedDate );
+	      }
+     });
+    $( "#dtFin" ).datepicker({
+	      defaultDate: "",
+	      changeMonth: true,
+	      changeYear: true,
+	      dateFormat: "yy-mm-dd",
+	      onClose: function( selectedDate ) {
+	        $( "#dtFin" ).datepicker( "option", "maxDate", selectedDate );
+	      }
+     });
+    $.get("/meteo/get_last_meteo",{}, function(result){
 
-  } );
+    	var last_meteo = result[0];
+    	$("#temperature").html(last_meteo.temperature);
+    	$("#humidite").html(last_meteo.humidity);
+    	$("#derniere").html(last_meteo.date_created);
+    	$("#prochaine").html(last_meteo.date_next_save);
+    	$("#headerDate").html(last_meteo.date_created);
+    });
+    var socket = window.io.connect("http://192.168.1.83:3000");
+    if(socket !== undefined) {
+	   
+		socket.on("connection",function(data){
+			alert(data);
+		});
+	} else {
+		//TODO: msg pas de connection socket
+
+	}
+  });
   
  </script>
 </head>
 <body>
 
-<div id="dvHeader" title="Basic dialog">
-  <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
-</div>
-<div id="dvMenu">Menu</div>
+	<div id="dvHeader" title="Basic dialog">
+	  Température : <font id="temperature"></font>, Humidité : <font id="humidite"></font> DATE : <font id="headerDate"></font>
+	</div>
 
-<div id="dvContent" tom="lechat">
+	<div id="dvMenu">
+		Début<br>
+		<div id="dtDebut" style="font-size: 10px"></div><br>
+		Fin<br>
+	 	<div id="dtFin" style="font-size: 10px"></div><br>
+	</div>
+	
+	<div id="dvContent" tom="lechat">
 
-le content
+	
+	le content
 
 
 
-</div>
+	</div>
 
-<div id="dvFooter">
-footer
-</div>
+	<div id="dvFooter">
+		Dernière mise à jour - <font id="derniere"></font> - Prochaine mise à jour des données - <font id="prochaine"></font> -
+	</div>
 
 
 </body>
